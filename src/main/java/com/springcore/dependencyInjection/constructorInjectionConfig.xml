@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+    <bean class="com.springcore.dependencyInjection.Address" name="address1" c:city="ASN" c:state="WB"
+          c:pinCode="713301"/>
+    <bean class="com.springcore.dependencyInjection.Student" name="student1">
+        <constructor-arg value="107"/>
+        <constructor-arg value="Debarshi"/>
+        <constructor-arg ref="address1"/>
+        <constructor-arg>
+            <map>
+                <entry key="OS" value="2months"/>
+                <entry key="CN" value="1month"/>
+            </map>
+        </constructor-arg>
+        <constructor-arg>
+            <set>
+                <value>7029968263</value>
+                <value>9474980257</value>
+            </set>
+        </constructor-arg>
+    </bean>
+</beans>

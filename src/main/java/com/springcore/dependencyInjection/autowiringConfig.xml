@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- have to add this to use annotations -->   
+    <context:annotation-config/>
+    <bean class="com.springcore.dependencyInjection.Address" name="address" p:city="ASN" p:state="WB"
+          p:pinCode="713301"/>
+          
+    <bean class="com.springcore.dependencyInjection.Address" name="address1" p:city="KOL" p:state="WB"
+          p:pinCode="700092"/>
+          
+   	<bean class="com.springcore.dependencyInjection.Employee" name="emp1" autowire="byName"/>
+    <!-- for autowire="byName" we have to make sure that the reference bean name(here; address)
+     and the property name used in the class(Employee) should be same   -->
+    <!-- for autowire="byType" it will just check for a bean with type Address -->
+    <!-- both byType and byName use setter injection -->
+    <!-- Autowiring by @Autowired annotation -->
+    <bean class="com.springcore.dependencyInjection.Employee" name="emp2" />
+</beans>
